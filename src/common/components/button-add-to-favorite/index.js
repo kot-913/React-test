@@ -1,15 +1,20 @@
 import React, { Component } from "react";
+import "./style.scss";
 
 class Button extends Component {
   handleClick = () => {
     console.log(this.props);
-    const { onHomeClick } = this.props;
-    onHomeClick();
+    const { onHeaderClick } = this.props;
+    onHeaderClick();
     // this.props.onHomeClick();// 2 variant
   };
 
   render() {
-    return <button onClick={this.handleClick}>Submit</button>;
+    return (
+      <button className="btn" onClick={this.handleClick}>
+        Add to favorite
+      </button>
+    );
   }
 }
 

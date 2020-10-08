@@ -1,0 +1,24 @@
+.footer {
+    height: 100px;
+    background: #02405a;
+    color: #E8EAFC;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid #BE2077;
+
+    .copywrite {
+        margin: 0 1%;
+    }
+
+    .footerNav {
+        width: 30%;
+        display: flex;
+        justify-content: space-evenly;
+        margin: 1%;
+
+        a {
+            color: #BE2077;
+        }
+    }
+}

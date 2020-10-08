@@ -1,28 +1,41 @@
 import React, { Component } from "react";
-import Button from "../../common/components/button";
-import Input from "../../common/components/Input";
+import Header from "../../common/Header/index";
+import Footer from "../../common/components/Footer/index";
 import "./style.scss";
 
 class HomePage extends Component {
   state = {
-    inputIsDisabled: true,
+    news: [],
   };
 
-  onHandleOnHomeClick = () => {
-    console.log("User clicked");
-    const { inputIsDisabled } = this.state;
-    this.setState({
-      inputIsDisabled: !inputIsDisabled,
-    });
-  };
+  componentDidMount() {
+    fetch(
+      "https://finnhub.io/api/v1/company-news?symbol=AAPL&from=2020-04-30&to=2020-05-01&token=btoqs4748v6thnhs3pe0"
+    )
+      .then((response) => response.json())
+      .then((response) =>
+        this.setState({
+          news: response,
+        })
+      )
+      .catch((error) => console.log(error));
+  }
 
   render() {
-    const { inputIsDisabled } = this.state;
+    const { news } = this.state;
 
     return (
-      <div className="home">
-        <Input placeholder="value" disable={inputIsDisabled} />
-        <Button onHomeClick={this.onHandleOnHomeClick} />
+      <div>
+        <Header />
+        <div className="home">
+          {news.slice(0, 10).map((item) => (
+            <div className="news-post" key={item.id}>
+              <img className="postImg" src={item.image} />
+              <p>{item.summary}</p>
+            </div>
+          ))}
+        </div>
+        <Footer />
       </div>
     );
   }
