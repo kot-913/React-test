@@ -16,14 +16,13 @@ class Input extends Component {
 
   render() {
     console.log(this.props);
-    const { placeholder, disable } = this.props;
+    const { placeholder } = this.props;
 
     return (
       <input
         className="input"
         onChange={this.handleInput}
         placeholder={placeholder}
-        disabled={disable}
       />
     );
   }
