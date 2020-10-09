@@ -30,7 +30,7 @@ class HomePage extends Component {
         <div className="home">
           {news.slice(0, 10).map((item) => (
             <div className="news-post" key={item.id}>
-              <img className="postImg" src={item.image} />
+              <img className="postImg" src={item.image} alt="" />
               <p>{item.summary}</p>
             </div>
           ))}
