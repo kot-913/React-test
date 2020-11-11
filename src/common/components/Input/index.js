@@ -7,15 +7,12 @@ class Input extends Component {
   };
 
   handleInput = (event) => {
-    console.log(event.target.value);
-    console.log(this.state);
     this.setState({
       inputValue: event.target.value,
     });
   };
 
   render() {
-    console.log(this.props);
     const { placeholder } = this.props;
 
     return (

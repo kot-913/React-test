@@ -3,7 +3,6 @@ import "./style.scss";
 
 class Button extends Component {
   handleClick = () => {
-    console.log(this.props);
     const { onHeaderClick } = this.props;
     onHeaderClick();
     // this.props.onHomeClick();// 2 variant
@@ -12,7 +11,7 @@ class Button extends Component {
   render() {
     return (
       <button className="btn" onClick={this.handleClick}>
-        Add to favorite
+        {this.props.label}
       </button>
     );
   }

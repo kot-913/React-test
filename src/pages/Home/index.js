@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import Header from "../../common/Header/index";
 import Footer from "../../common/components/Footer/index";
+import CircularProgress from "../../common/components/Loader/loader";
 import "./style.scss";
 
 class HomePage extends Component {
   state = {
     news: [],
+    loading: true,
   };
 
   componentDidMount() {
@@ -16,25 +18,27 @@ class HomePage extends Component {
       .then((response) =>
         this.setState({
           news: response,
+          loading: false,
         })
       )
-      .catch((error) => console.log(error));
+      .catch((error) => console.log("Somethin is wrong!"));
   }
 
   render() {
-    const { news } = this.state;
+    const { news, loading } = this.state;
+
+    let date = news.slice(0, 8).map((item) => (
+      <div className="news-post" key={item.id}>
+        <img className="postImg" src={item.image} alt="" />
+        <p>{item.summary}</p>
+      </div>
+    ));
 
     return (
       <div>
         <Header />
-        <div className="home">
-          {news.slice(0, 10).map((item) => (
-            <div className="news-post" key={item.id}>
-              <img className="postImg" src={item.image} alt="" />
-              <p>{item.summary}</p>
-            </div>
-          ))}
-        </div>
+
+        <div className="home">{loading ? <CircularProgress /> : date}</div>
         <Footer />
       </div>
     );
