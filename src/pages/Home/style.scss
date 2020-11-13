@@ -2,16 +2,16 @@
     color: #E8EAFC;
     display: flex;
     flex-wrap: wrap;
-    background-color: #1a5168;
+    background-color: #fff;
     padding: 5% 10%;
-
-
 
     .news-post {
         width: 20%;
         margin: 2%;
-        border: 2px solid #b9bddb;
+        border: 2px solid #717592;
         border-radius: 5%;
+        background-color: #51546e;
+        box-shadow: #143f50 2px 2px 0;
 
         img {
             width: 100%;
