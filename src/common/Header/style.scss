@@ -1,0 +1,37 @@
+.header {
+    height: 100px;
+    background: #02405a;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #BE2077;
+    padding: 0 2% 0 2%;
+
+    .header-text {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        color: #42abd8;
+        text-shadow: #0c2a36 2px 2px 0;
+
+        .header-uptext {
+            margin-bottom: 0;
+            position: relative;
+        }
+
+        .allOver {
+            font-family: "Segoe print";
+            position: absolute;
+            top: 6%;
+            left: 12%;
+            color: #BE2077;
+
+        }
+    }
+
+    .header-operators {
+        display: flex;
+        align-items: center;
+    }
+
+}

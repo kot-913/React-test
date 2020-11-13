@@ -8,8 +8,6 @@ const HomePage = () => {
 	const [news, setNews] = React.useState([]);
 	const [loading, setLoading] = React.useState(true);
 
-
-
 	React.useEffect(() => {
 		fetch(
 			"https://finnhub.io/api/v1/company-news?symbol=AAPL&from=2020-04-30&to=2020-05-01&token=btoqs4748v6thnhs3pe0"
@@ -22,8 +20,6 @@ const HomePage = () => {
 			)
 			.catch((error) => console.log("Somethin is wrong!"));
 	}, []);
-
-
 
 	let date = news.slice(0, 8).map((item) => (
 		<div className="news-post" key={item.id}>
@@ -41,6 +37,5 @@ const HomePage = () => {
 		</div>
 	);
 }
-
 
 export default HomePage;
